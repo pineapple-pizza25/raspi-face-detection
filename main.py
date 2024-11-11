@@ -41,6 +41,8 @@ while True:
 
     
         try:
+            print("I picked up a face!!! You better be in the system")
+
             with open("face.jpg", "rb") as file:
                 response = requests.post(api_url, files={"file": file})
                 print('Status Code:', response.status_code)
