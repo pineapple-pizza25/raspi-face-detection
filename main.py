@@ -33,7 +33,7 @@ while True:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
         #result, image = picam2.capture_array()
-        picam2.capture_file("face.jpg", quality=100)
+        picam2.capture_file("face.jpg")
 
         #cv2.imshow("image", image)
         cv2.waitKey(1) 
