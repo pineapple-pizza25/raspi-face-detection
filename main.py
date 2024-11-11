@@ -21,7 +21,7 @@ while True:
     gray= cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = clf.detectMultiScale(
         gray,
-        scaleFactor=1.1,
+        scaleFactor=1.2,
         minNeighbors = 10,
         minSize = (30,30) ,
         flags = cv2.CASCADE_SCALE_IMAGE
