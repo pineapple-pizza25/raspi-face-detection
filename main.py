@@ -38,7 +38,6 @@ while True:
         #cv2.imshow("image", image)
         cv2.waitKey(1) 
         time.sleep(6)
-        cv2.destroyWindow("image")
 
     
         try:
@@ -51,6 +50,7 @@ while True:
             print('Error:', e)
             #return None
         
+
 
 
         print('Success!')
