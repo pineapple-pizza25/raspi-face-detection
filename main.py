@@ -42,9 +42,12 @@ while True:
     
         try:
             with open("face.jpg", "rb") as file:
-                response = requests.post(api_url, files={"image": file})
+                response = requests.post(api_url, files={"file": file})
                 print('Status Code:', response.status_code)
                 print('Response Data:', response.json())
+
+                if response.status_code == 200:
+                    print('Success!')
                 
         except requests.exceptions.RequestException as e:
             print('Error:', e)
