@@ -22,8 +22,8 @@ while True:
     faces = clf.detectMultiScale(
         gray,
         scaleFactor=1.3,
-        minNeighbors = 7,
-        minSize = (50,50) ,
+        minNeighbors = 5,
+        minSize = (30,30) ,
         flags = cv2.CASCADE_SCALE_IMAGE
     )
 
