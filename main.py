@@ -29,11 +29,13 @@ while True:
 
     if len(faces) > 0:
         #time.sleep(1)
+        print("I picked up a face!!! You better be in the system")
         for (x, y, width, height) in faces:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
-        #result, image = picam2.capture_array()
+        print("Taking picture")
         picam2.capture_file("face.jpg")
+        print("picture taken!!!!!")
 
         #cv2.imshow("image", image)
         cv2.waitKey(1) 
@@ -41,7 +43,7 @@ while True:
 
     
         try:
-            print("I picked up a face!!! You better be in the system")
+            print("I am going to upload this picture now")
 
             with open("face.jpg", "rb") as file:
                 response = requests.post(api_url, files={"file": file})
