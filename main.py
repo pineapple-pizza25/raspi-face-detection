@@ -36,7 +36,7 @@ while True:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
         print("Taking picture")
-        cv2.imwrite("face.jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
+        picam2.capture_file("face.jpg")
         print("picture taken!!!!!")
 
         #cv2.imshow("image", image)
