@@ -4,12 +4,14 @@ import requests
 import io
 from picamera2 import Picamera2
 
+
+
 api_url = 'https://facial-recognition-api.calmwave-03f9df68.southafricanorth.azurecontainerapps.io/facialrecognition'
 
 clf = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 picam2 = Picamera2()
-picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (1920, 1080)}))
+picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (1080, 720)}))
 picam2.start()
 
 face_detected = False
