@@ -11,7 +11,7 @@ api_url = 'https://facial-recognition-api.calmwave-03f9df68.southafricanorth.azu
 clf = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 picam2 = Picamera2()
-picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (1280, 720)}))
+picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (1920, 1080)}))
 picam2.start()
 
 face_detected = False
@@ -35,9 +35,8 @@ while True:
         for (x, y, width, height) in faces:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
-        print("Taking picture")
-        picam2.capture_file("face.jpg")
-        print("picture taken!!!!!")
+        _, buffer = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])  # Quality 50 out of 100
+        image_bytes = io.BytesIO(buffer)
 
         #cv2.imshow("image", image)
         cv2.waitKey(1) 
@@ -48,7 +47,7 @@ while True:
             print("I am going to upload this picture now")
 
             with open("face.jpg", "rb") as file:
-                response = requests.post(api_url, files={"file": file})
+                response = requests.post(api_url, files={"file": ("face.jpg", image_bytes, "image/jpeg")})
                 print('Status Code:', response.status_code)
                 print('Response Data:', response.json())
 
