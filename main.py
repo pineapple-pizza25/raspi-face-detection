@@ -35,7 +35,7 @@ while True:
         for (x, y, width, height) in faces:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
-        _, buffer = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])  # Quality 50 out of 100
+        _, buffer = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])  # Quality 50 out of 100
         image_bytes = io.BytesIO(buffer)
 
         #cv2.imshow("image", image)
