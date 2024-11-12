@@ -35,8 +35,9 @@ while True:
         for (x, y, width, height) in faces:
             cv2.rectangle(frame, (x,y), (x+width, y+width), (255, 255, 0), 2)
 
-        _, buffer = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])  # Quality 50 out of 100
-        image_bytes = io.BytesIO(buffer)
+        print("Taking picture")
+        cv2.imwrite("face.jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
+        print("picture taken!!!!!")
 
         #cv2.imshow("image", image)
         cv2.waitKey(1) 
@@ -47,7 +48,7 @@ while True:
             print("I am going to upload this picture now")
 
             with open("face.jpg", "rb") as file:
-                response = requests.post(api_url, files={"file": ("face.jpg", image_bytes, "image/jpeg")})
+                response = requests.post(api_url, files={"file": file})
                 print('Status Code:', response.status_code)
                 print('Response Data:', response.json())
 
