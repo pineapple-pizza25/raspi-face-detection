@@ -5,8 +5,8 @@ import io
 from picamera2 import Picamera2
 
 
+api_url = 'http://127.0.0.1:8000/facialrecognition'
 
-api_url = 'https://facial-recognition-api.calmwave-03f9df68.southafricanorth.azurecontainerapps.io/facialrecognition'
 
 clf = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
