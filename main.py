@@ -16,8 +16,7 @@ picam2.start()
 
 picam2.set_controls({
     "Brightness": 0.5,          # Adjust brightness (-1 to 1)
-    "ExposureTime": 50000,      # Increase exposure time (microseconds)
-    "AnalogueGain": 2.0         # Increase gain (ISO equivalent)
+    "ExposureTime": 50000     
 })
 
 face_detected = False
