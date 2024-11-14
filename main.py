@@ -14,7 +14,11 @@ picam2 = Picamera2()
 picam2.configure(picam2.create_preview_configuration(main={"format": 'XRGB8888', "size": (1920, 1080)}))
 picam2.start()
 
-picam2.set_controls({"ExposureTime": 30000}) 
+picam2.set_controls({
+    "Brightness": 0.5,          # Adjust brightness (-1 to 1)
+    "ExposureTime": 50000,      # Increase exposure time (microseconds)
+    "AnalogueGain": 2.0         # Increase gain (ISO equivalent)
+})
 
 face_detected = False
 
